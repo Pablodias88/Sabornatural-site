@@ -1,0 +1,261 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  background: #f2f7e2;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding-bottom: 30px;
+  background: #f2f7e2;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.logo {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.logo img {
+  width: 180px;
+  height: auto;
+}
+
+.banner {
+  margin: 30px 0 20px 0;
+  text-align: center;
+}
+
+.banner img {
+  width: 90%;
+  max-width: 800px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.categorias {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.categoria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 2px solid #bfc7b2;
+  transition: border-color 0.35s cubic-bezier(.4,0,.2,1) 0.08s;
+}
+
+.categoria img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+  margin-bottom: 8px;
+}
+
+.categoria span {
+  font-size: 15px;
+  text-align: center;
+  color: #333;
+  font-weight: 500;
+}
+
+.categoria:hover {
+  border-color: #388e3c;
+}
+
+.produtos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px 18px;
+  padding: 0 40px;
+  margin-bottom: 40px;
+}
+
+.produto {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 6px #e0e0e0;
+  padding: 12px;
+  gap: 16px;
+  cursor: pointer;
+  border: 2px solid #e0e0e0;
+  transition: border-color 0.35s cubic-bezier(.4,0,.2,1) 0.08s;
+}
+
+.produto img {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: none;
+}
+
+.produto span {
+  font-size: 16px;
+  color: #222;
+  font-weight: 500;
+}
+
+.produto:hover {
+  border-color: #388e3c;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.voltar {
+  background: #e6f0c2;
+  border: 1px solid #bfc7b2;
+  border-radius: 4px;
+  padding: 8px 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.voltar:hover {
+  background: #a5d6a7;
+}
+
+.arroba {
+  font-size: 15px;
+  color: #5e7d3e;
+  font-weight: 500;
+}
+
+.social a img {
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  vertical-align: middle;
+  transition: filter 0.3s;
+}
+
+.social a img:hover {
+  filter: brightness(0.7) sepia(1) hue-rotate(60deg) saturate(2);
+}
+
+.menu-fechado {
+  display: none;
+}
+#menu {
+  background: #c8e6c9;
+  position: fixed;
+  top: 0; left: 0;
+  width: 200px;
+  height: 100vh;
+  padding: 30px 10px;
+  box-shadow: 2px 0 8px #bfc7b2;
+  z-index: 100;
+}
+#menu ul {
+  list-style: none;
+  padding: 0;
+}
+#menu li {
+  margin-bottom: 20px;
+}
+#menu a {
+  color: #388e3c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Responsivo para tablets e mobile */
+@media (max-width: 900px) {
+  .banner img {
+    height: 140px;
+  }
+  .produtos {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 10px;
+    gap: 18px 10px;
+  }
+  .footer {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo img {
+    width: 120px;
+  }
+  .banner img {
+    height: 90px;
+    width: 100%;
+    max-width: 100vw;
+  }
+  .categorias {
+    gap: 18px;
+  }
+  .categoria img {
+    width: 60px;
+    height: 60px;
+  }
+  .categoria span {
+    font-size: 12px;
+  }
+  .produtos {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 4px;
+  }
+  .produto img {
+    width: 44px;
+    height: 44px;
+  }
+  .produto span {
+    font-size: 13px;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 0 4px;
+  }
+  .voltar {
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+  .arroba {
+    font-size: 13px;
+  }
+  .social a img {
+    width: 26px;
+    height: 26px;
+    margin-left: 4px;
+  }
+}
