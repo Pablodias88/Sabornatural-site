@@ -1,261 +1,421 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/* Reset e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Fontes e variáveis */
+@font-face {
+    font-family: "Segoe UI";
+    src: local("Segoe UI"), local("Arial"), local("sans-serif");
+}
+
+:root {
+    --branco: #ffffff;
+    --preto: #000000;
+    --verde-sabor: #388e3c;
+    --verde-claro: #c8e6c9;
+    --fundo-site: #f2f7e2;
+    --cinza-borda: #bfc7b2;
+    --cinza-card: #e0e0e0;
+    --footer-bg: #e6f0c2;
+}
+
+/* Grid container padrão */
+.container-grid {
+    width: 80vw;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Body e fundo */
 body {
-  min-height: 100vh;
-  width: 100vw;
-  background: #f2f7e2;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: var(--fundo-site);
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
 }
 
-.container {
-  width: 100vw;
-  min-height: 100vh;
-  margin: 0;
-  padding-bottom: 30px;
-  background: #f2f7e2;
-  box-sizing: border-box;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.logo {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.logo img {
-  width: 180px;
-  height: auto;
-}
-
-.banner {
-  margin: 30px 0 20px 0;
-  text-align: center;
-}
-
-.banner img {
-  width: 90%;
-  max-width: 800px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.categorias {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.categoria {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  padding: 12px 18px;
-  border-radius: 14px;
-  border: 2px solid #bfc7b2;
-  transition: border-color 0.35s cubic-bezier(.4,0,.2,1) 0.08s;
-}
-
-.categoria img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: none;
-  margin-bottom: 8px;
-}
-
-.categoria span {
-  font-size: 15px;
-  text-align: center;
-  color: #333;
-  font-weight: 500;
-}
-
-.categoria:hover {
-  border-color: #388e3c;
-}
-
-.produtos {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px 18px;
-  padding: 0 40px;
-  margin-bottom: 40px;
-}
-
-.produto {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 6px #e0e0e0;
-  padding: 12px;
-  gap: 16px;
-  cursor: pointer;
-  border: 2px solid #e0e0e0;
-  transition: border-color 0.35s cubic-bezier(.4,0,.2,1) 0.08s;
-}
-
-.produto img {
-  width: 64px;
-  height: 64px;
-  border-radius: 10px;
-  object-fit: cover;
-  border: none;
-}
-
-.produto span {
-  font-size: 16px;
-  color: #222;
-  font-weight: 500;
-}
-
-.produto:hover {
-  border-color: #388e3c;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-
-.voltar {
-  background: #e6f0c2;
-  border: 1px solid #bfc7b2;
-  border-radius: 4px;
-  padding: 8px 24px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
-}
-
-.voltar:hover {
-  background: #a5d6a7;
-}
-
-.arroba {
-  font-size: 15px;
-  color: #5e7d3e;
-  font-weight: 500;
-}
-
-.social a img {
-  width: 32px;
-  height: 32px;
-  margin-left: 10px;
-  vertical-align: middle;
-  transition: filter 0.3s;
-}
-
-.social a img:hover {
-  filter: brightness(0.7) sepia(1) hue-rotate(60deg) saturate(2);
-}
-
-.menu-fechado {
-  display: none;
-}
-#menu {
-  background: #c8e6c9;
-  position: fixed;
-  top: 0; left: 0;
-  width: 200px;
-  height: 100vh;
-  padding: 30px 10px;
-  box-shadow: 2px 0 8px #bfc7b2;
-  z-index: 100;
-}
-#menu ul {
-  list-style: none;
-  padding: 0;
-}
-#menu li {
-  margin-bottom: 20px;
-}
-#menu a {
-  color: #388e3c;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Responsivo para tablets e mobile */
-@media (max-width: 900px) {
-  .banner img {
-    height: 140px;
-  }
-  .produtos {
-    grid-template-columns: 1fr 1fr;
-    padding: 0 10px;
-    gap: 18px 10px;
-  }
-  .footer {
-    padding: 0 10px;
-  }
-}
-
-@media (max-width: 600px) {
-  .logo img {
-    width: 120px;
-  }
-  .banner img {
-    height: 90px;
-    width: 100%;
-    max-width: 100vw;
-  }
-  .categorias {
-    gap: 18px;
-  }
-  .categoria img {
-    width: 60px;
-    height: 60px;
-  }
-  .categoria span {
-    font-size: 12px;
-  }
-  .produtos {
-    grid-template-columns: 1fr;
+/* Títulos */
+.titulo {
+    display: flex;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+    justify-content: center;
+    align-items: center;
     gap: 12px;
-    padding: 0 4px;
-  }
-  .produto img {
-    width: 44px;
-    height: 44px;
-  }
-  .produto span {
-    font-size: 13px;
-  }
-  .footer {
+    margin-bottom: 20px;
+}
+.titulo h2 {
+    color: var(--branco);
+    background-color: var(--verde-sabor);
+    border-radius: 20px;
+    padding: 10px 18px;
+    margin-bottom: 0;
+}
+.titulo span {
+    color: var(--verde-sabor);
+    border-bottom: solid 3px var(--cinza-borda);
+}
+
+/* ----------- Header e Banner ----------- */
+.banner {
+    background: var(--fundo-site);
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+header {
+    height: 120px;
+}
+header img.logo {
+    width: 180px;
+}
+header .container-grid {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu {
+    max-width: 700px;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+.menu a {
+    font-size: 18px;
+    color: var(--verde-sabor);
+    font-family: "Segoe UI", Arial, sans-serif;
+    text-decoration: underline transparent;
+    text-decoration-thickness: 2px;
+    transition: text-decoration 500ms ease;
+    font-weight: 600;
+}
+.menu a:hover {
+    text-decoration-color: var(--cinza-borda);
+}
+.conteudo-banner {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.conteudo-banner img {
+    max-width: 800px;
+    width: 90%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.conteudo-banner p {
+    font-size: 22px;
+    color: var(--verde-sabor);
+    margin-top: 18px;
+    font-weight: 500;
+}
+
+/* ----------- Categorias ----------- */
+#categorias .row {
+    gap: 0;
+}
+.categoria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 18px;
+    border-radius: 14px;
+    border: 2px solid var(--cinza-borda);
+    transition: border-color 0.35s cubic-bezier(.4,0,.2,1) 0.08s;
+    background: var(--branco);
+}
+.categoria img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+.categoria span {
+    font-size: 15px;
+    text-align: center;
+    color: #333;
+    font-weight: 500;
+}
+.categoria:hover {
+    border-color: var(--verde-sabor);
+}
+
+/* ----------- Produtos ----------- */
+#produtos .row {
+    gap: 0;
+}
+.produto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--branco);
+    border-radius: 10px;
+    box-shadow: 0 0 6px var(--cinza-card);
+    padding: 12px;
     gap: 10px;
-    align-items: flex-start;
-    padding: 0 4px;
-  }
-  .voltar {
-    font-size: 14px;
-    padding: 6px 14px;
-  }
-  .arroba {
-    font-size: 13px;
-  }
-  .social a img {
-    width: 26px;
-    height: 26px;
-    margin-left: 4px;
-  }
+    cursor: pointer;
+    border: 2px solid var(--cinza-card);
+    transition: border-color 0.35s cubic-bezier(.4,0,.2,1) 0.08s;
+}
+.produto img {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.produto span {
+    font-size: 16px;
+    color: #222;
+    font-weight: 500;
+}
+.produto:hover {
+    border-color: var(--verde-sabor);
+}
+
+/* ----------- Sobre ----------- */
+#sobre {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+#sobre img {
+    max-width: 460px;
+    width: 40%;
+    border-radius: 40px;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+#sobre .conteudo-sobre {
+    flex: 1;
+}
+#sobre p {
+    font-size: 20px;
+    text-align: justify;
+    margin-top: 30px;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ----------- Contato ----------- */
+#contato {
+    text-align: center;
+    padding-bottom: 80px;
+    margin-bottom: 80px;
+}
+#contato form {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background-color: var(--footer-bg);
+    border: solid 2px var(--cinza-borda);
+    color: var(--preto);
+    font-size: 17px;
+}
+#contato .form-label {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+#contato input,
+#contato textarea {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    background: var(--branco);
+    color: var(--preto);
+}
+#contato input:focus,
+#contato textarea:focus {
+    outline: 2px solid var(--verde-sabor);
+}
+#contato button {
+    height: 40px;
+    width: 100%;
+    background-color: var(--verde-sabor);
+    color: var(--branco);
+    border: none;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 500ms;
+}
+#contato button:hover {
+    background-color: var(--cinza-borda);
+}
+
+/* ----------- Footer ----------- */
+footer {
+    min-height: 180px;
+    background: var(--footer-bg);
+    padding: 30px 0;
+}
+footer .container-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+footer img {
+    height: 50px;
+}
+.redes-sociais {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+.redes-sociais p {
+    color: var(--verde-sabor);
+    font-size: 18px;
+    font-weight: 600;
+}
+.icones-redes {
+    display: flex;
+    gap: 16px;
+}
+.icones-redes a img {
+    width: 32px;
+    height: 32px;
+    transition: filter 0.3s;
+}
+.icones-redes a img:hover {
+    filter: brightness(0.7) sepia(1) hue-rotate(60deg) saturate(2);
+}
+.arroba {
+    font-size: 15px;
+    color: #5e7d3e;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+/* ----------- Responsividade ----------- */
+@media screen and (max-width: 1024px) {
+    .titulo, .titulo h2 {
+        font-size: 26px;
+    }
+    .menu {
+        justify-content: space-evenly;
+    }
+    #sobre p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .conteudo-banner img {
+        height: 140px;
+    }
+    #sobre {
+        flex-direction: column;
+        gap: 30px;
+    }
+    #sobre img {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        position: relative;
+        height: auto;
+    }
+    header .container-grid {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        align-items: center;
+    }
+    .conteudo-banner img {
+        height: 90px;
+        width: 100%;
+        max-width: 100vw;
+    }
+    .titulo {
+        font-size: 20px;
+    }
+    #sobre {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    #sobre img {
+        max-width: 100%;
+        width: 100%;
+    }
+    footer .container-grid {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+    .redes-sociais {
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container-grid {
+        width: 98vw;
+    }
+    header img.logo {
+        width: 120px;
+    }
+    .conteudo-banner img {
+        height: 70px;
+    }
+    .categoria img {
+        width: 60px;
+        height: 60px;
+    }
+    .categoria span {
+        font-size: 12px;
+    }
+    .produto img {
+        width: 44px;
+        height: 44px;
+    }
+    .produto span {
+        font-size: 13px;
+    }
+    #contato form {
+        padding: 20px 0;
+    }
+    .arroba {
+        font-size: 13px;
+    }
+    .icones-redes a img {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .titulo, .titulo h2 {
+        font-size: 16px;
+    }
+    .conteudo-banner p {
+        font-size: 14px;
+    }
 }
